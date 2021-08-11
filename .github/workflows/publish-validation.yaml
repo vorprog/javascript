@@ -1,0 +1,21 @@
+name: build
+on:
+  push:
+    paths:
+      - "validation/validation.js"
+    branches:
+      - main
+
+env:
+  GITHUB_REPO_URL: https://github.com/${{ github.repository }}
+  COMMIT_SHA: ${{ github.sha }}
+  NPM_USER: vorprog
+  NPM_PUBLISH_TOKEN: ${{ secrets.SuperSecret }}
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+        - run: if [[ ! -d "git_source_code" ]]; then echo "git_source_code directory not found, cloning $GITHUB_REPO_URL . . ." && git clone $GITHUB_REPO_URL git_source_code; fi
+        - run: cd git_source_code && git pull && git checkout $COMMIT_TAG
+        - run: npm adduser --scope=@$NPM_USER
+        - run: npm publish --access public
