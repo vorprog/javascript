@@ -40,5 +40,4 @@ jobs:
       - name: Publish package to registry
         run: |
           cd $GITHUB_WORKSPACE/$NPM_PACKAGE_PATH
-          npm adduser --scope=@$NPM_USER
           npm publish --access public
