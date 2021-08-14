@@ -23,6 +23,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+          cd $GITHUB_WORKSPACE/$NPM_PACKAGE_PATH
+          npm install
           cd $GITHUB_WORKSPACE/tests
           npm install
           node $TEST_SCRIPT
