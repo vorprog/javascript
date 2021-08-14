@@ -17,7 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: pwd
+      - run: ls
+      - run: echo $GITHUB_WORKSPACE
+      - run: ls $GITHUB_WORKSPACE
       - run: cd $GITHUB_WORKSPACE/tests
+      - run: pwd
+      - run: ls
       - run: npm install
       - run: node test-validation.js
   publish:
