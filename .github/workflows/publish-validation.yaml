@@ -7,9 +7,10 @@ on:
       - validation/*
   workflow_dispatch:
     inputs:
-      target_commit:
+      comment:
+        description: ''
         required: false
-        default: ${{ github.sha }}
+        default: 'manual workflow dispatch trigger'
 env:
   GIT_BRANCH: ${{ github.ref }}
   COMMIT_SHA: ${{ github.sha }}
