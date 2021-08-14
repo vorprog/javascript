@@ -21,11 +21,11 @@ jobs:
   publish:
     defaults:
       run:
-        shell: bash -ex {0}
+        shell: bash -ex {0} # https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#custom-shell
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v2 # https://github.com/actions/checkout/blob/main/action.yml
+      - uses: actions/setup-node@v2 # https://github.com/actions/setup-node/blob/main/action.yml
         with:
           registry-url: "https://registry.npmjs.org"
       - name: Install package dependencies
