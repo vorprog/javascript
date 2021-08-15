@@ -13,8 +13,6 @@ on:
         default: 'manual workflow dispatch trigger'
 env:
   TEST_SCRIPT: test-validation.js
-  NPM_DIRECTORY: validation
-  NPM_USER: vorprog
   NPM_PACKAGE_PATH: validation
   NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }} # actions/setup-node@v2 uses NODE_AUTH_TOKEN by default
 jobs:
